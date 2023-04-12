@@ -29,5 +29,12 @@ pipeline {
         slackSend channel: '#ibrahim_ip1', color: '#00FF00', message: 'Build ${env.BUILD_NUMBER} has been Successful (<${env.BUILD_URL}|Open>)', teamDomain: 'devops-je18634', tokenCredentialId: 'slack'
       }
     }
+    stage('Deploy on Render') {
+      steps{
+        withCredentials([usernameColonPassword(credentialsId: 'Render', variable: 'RenderCredentials')]) {
+          sh 'git push https://api.render.com/deploy/srv-cgrc507dvk4n7bqjriog?key=qQRBOmbjg7o'
+}
+      }
+    }
   }
 }
