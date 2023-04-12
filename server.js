@@ -13,7 +13,7 @@ const app = express();
 
 // connecting the database
 let mongodb_url = 'mongodb+srv://ibrahimyahya:N9ZsLHU2TFzSxlh0@cluster0.yvvicry.mongodb.net/?retryWrites=true&w=majority';
-let dbName = 'darkroom';
+let dbName = 'Cluster0';
 mongoose.connect(`${mongodb_url}${dbName}`,{ useNewUrlParser: true , useUnifiedTopology: true }, (err)=>{
     if (err) console.log(err)
 });
@@ -43,7 +43,7 @@ app.use('/image', image);
 
 
  
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT,() =>{
     console.log(`Server is listening at http://localhost:${PORT}`)
 });
